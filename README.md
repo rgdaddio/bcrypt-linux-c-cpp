@@ -27,6 +27,10 @@ c/c++ are include as well in comments.
 
 //g++ -lbsd test.c bcrypt.c blowfish.c timing_safe.c linux_util.c -lrt \`pkg-config --libs libbsd\`
 
-To use the python test
+To use the python test:
 
 sudo pip install bcrypt
+
+To run:
+
+a.out <yourpassword>
