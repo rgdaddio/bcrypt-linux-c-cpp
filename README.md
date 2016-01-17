@@ -19,11 +19,14 @@ c/c++ are include as well in comments.
 
 //tested with g++ 5.2.1 ubuntu 15.10
 
+#To Use:
+
 //sudo apt-get install libbsd-dev
 
-//gcc -lbsd test.c bcrypt.c blowfish.c timing_safe.c linux_util.c -lrt `pkg-config --libs libbsd`
+//gcc -lbsd test.c bcrypt.c blowfish.c timing_safe.c linux_util.c -lrt \`pkg-config --libs libbsd\`
 
-//g++ -lbsd test.c bcrypt.c blowfish.c timing_safe.c linux_util.c -lrt `pkg-config --libs libbsd`
+//g++ -lbsd test.c bcrypt.c blowfish.c timing_safe.c linux_util.c -lrt \`pkg-config --libs libbsd\`
 
 To use the python test
+
 sudo pip install bcrypt
