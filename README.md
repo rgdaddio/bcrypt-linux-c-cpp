@@ -33,4 +33,4 @@ sudo pip install bcrypt
 
 To run:
 
-a.out <yourpassword>
+a.out \<yourpassword\>
