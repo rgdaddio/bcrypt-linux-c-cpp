@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
   else
     {
       printf("cant get dir\n");
+      return 0
     }
 
   /*build string with pw to send to python program*/
