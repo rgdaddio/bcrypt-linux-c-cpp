@@ -19,6 +19,10 @@ c/c++ are include as well in comments.
 
 //tested with g++ 5.2.1 ubuntu 15.10
 
+//tested with gcc 9.3.0 ubuntu 20.04
+
+//tested with g++ 9.3.0 ubuntu 20.04
+
 #To Use:
 
 //sudo apt-get install libbsd-dev
@@ -34,5 +38,7 @@ sudo pip install bcrypt
 To run:
 
 c_bcrypt_test \<yourpassword\>
+
 or:
+
 cpp_bcrypt_test  \<yourpassword\>
