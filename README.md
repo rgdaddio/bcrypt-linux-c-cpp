@@ -1,7 +1,7 @@
 # bcrypt-linux-c-cpp
 Port of OpenBSD bcrypt for c and c++ on linux
 
-This is pretty much a direct port of the OpenBSD implementation.
+This is pretty much a direct port of the OpenBSD implementation to Ubuntu Linux.
 
 It compiles on Ubuntu and requires libbsd Ubuntu package it also uses
 suckless software explicit_bzero.
