@@ -9,7 +9,7 @@ suckless software explicit_bzero.
 Included is a test which calls a python script that generates
 the bcrypt hash and this is then validated using the c/c++
 implementation. Routines to generate hashes in the test via
-c/c++ are include as well in comments.
+c/c++ are included as well they are commented out by default.
 
 //tested with gcc 4.6.3 ubuntu 12.04
 
