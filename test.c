@@ -1,18 +1,30 @@
 /*
  * Tester to test c/c++ on ubuntu bcrypt
+ ********************************************************************
  * Calls python to do the encrypt
  * Then uses c/c++ implementation to validate
- * There is encrypt via c/c++ tested commented below
- * Right now the implementation relies on 1)ubuntu bsd pkg
+ ********************************************************************
+ * There is encrypt via c/c++ tester commented below
+ ********************************************************************
+ * Right now the implementation relies on 
+ * 1)ubuntu bsd pkg
  * 2)and suckless software's explicit_bzero
- * There are really only 2 calls that need these pieces
+ ********************************************************************
+ * There are really only 2 calls that need the external SW
  * The rest of the code is pretty much openbsd's implementation
  * 
  */
+
 //tested with gcc 4.6.3 ubuntu 12.04
 //tested with g++ 4.6.3 ubuntu 12.04
 //tested with gcc 5.2.1 ubuntu 15.10
 //tested with g++ 5.2.1 ubuntu 15.10
+//tested with gcc 9.3.0 ubuntu 20.04
+//tested with g++ 9.3.0 ubuntu 20.04
+
+/*
+ * Just a dummy use your own make if you need to integrate
+ */
 
 //sudo apt-get install libbsd-dev
 //gcc -lbsd test.c bcrypt.c blowfish.c timing_safe.c linux_util.c -lrt `pkg-config --libs libbsd`
@@ -28,7 +40,7 @@ char *bcrypt_gensalt(uint8_t log_rounds);
 char *bcrypt(const char *pass, const char *salt);
 int bcrypt_checkpass(const char *pass, const char *goodhash);
 
-int dumpit(char *s);
+void dumpit(char *s);
 
 int main(int argc, char *argv[])
 {
@@ -55,8 +67,8 @@ int main(int argc, char *argv[])
     printf("Current working dir: %s\n", cwd);
   else
     {
-      printf("cant get dir\n");
-      return 0
+      printf("can't get dir\n");
+      return 0;
     }
 
   /*build string with pw to send to python program*/
@@ -96,15 +108,15 @@ int main(int argc, char *argv[])
   printf("outbuflen: %d\n", (int)strlen(outbuf));
   
   if(val==0)
-    printf("SUCCESS: %d\n", val);
+    printf("SUCCESS validated python bcrypt hash with c/c++: %d\n", val);
   else
-    printf("FAIL %d\n", val);
+    printf("FAIL mismatch %d\n", val);
   
   return 0;
   
 }
 
-int dumpit(char *s)
+void dumpit(char *s)
 {
   char* forward = s;
   int forward_length = 0;

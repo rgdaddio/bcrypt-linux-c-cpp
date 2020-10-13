@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2.7
 
 #This is just a test script.
 #The idea is to verify that the c/c++ code
@@ -28,18 +28,12 @@ if password[-1] in quote_chars:
     password = password[0:-2]
 
 
-hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-fix_str1_to_hash = '$2a$'
-#fix_str1_to_hash.encode('utf-8')
-fix_str2_to_hash = '$2y$'
-#fix_str2_to_hash.encode('utf-8')
-
-#hashed = hashed.replace('$2a$', '$2y$')
-hashed = hashed.replace(fix_str1_to_hash.encode('utf-8'), fix_str2_to_hash.encode('utf-8'))
+hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+hashed = hashed.replace('$2a$', '$2y$')
 
 #print 'encrypted pw'
 #print '\n'
 #print str(hashed)
 #print hashed
 
-sys.stdout.write(str(hashed.decode('utf8')))
+sys.stdout.write(hashed)
