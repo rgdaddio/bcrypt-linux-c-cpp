@@ -29,10 +29,10 @@ if password[-1] in quote_chars:
 
 
 hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
 fix_str1_to_hash = '$2a$'
-#fix_str1_to_hash.encode('utf-8')
+
 fix_str2_to_hash = '$2y$'
-#fix_str2_to_hash.encode('utf-8')
 
 #hashed = hashed.replace('$2a$', '$2y$')
 hashed = hashed.replace(fix_str1_to_hash.encode('utf-8'), fix_str2_to_hash.encode('utf-8'))
